@@ -15,8 +15,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "mensseger")
-public class MenssegerEntity implements Serializable {
+@Table(name = "message")
+public class MessageEntity implements Serializable {
 	
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -34,7 +34,6 @@ public class MenssegerEntity implements Serializable {
 	@NotNull
 	private Boolean view;
 	@NotNull
-	
 	@ManyToOne // muitas mensagen podem ser enviada por um usuario 
 	private UserEntity userEnvia;
 	
@@ -42,7 +41,7 @@ public class MenssegerEntity implements Serializable {
 	@ManyToOne // muitas mensagens podem ser recebidas por um usuario
 	private UserEntity userRecebe;
 
-	public MenssegerEntity() {
+	public MessageEntity() {
 		super();
 	}
 

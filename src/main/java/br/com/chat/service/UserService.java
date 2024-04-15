@@ -46,4 +46,7 @@ public class UserService {
 
 	}
 
+	public void updateVistoPorUltimoById(Long id){
+		userRepository.updateVistoPorUltimoById(id);
+	}
 }
