@@ -17,14 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Método para buscar todos os usuários
     @GetMapping
     public ResponseEntity<Object> findAllUsers() {
         List<UserEntity> users = userService.findAllUsers();
         return ResponseEntity.ok(users);
     }
 
-    // Método para buscar um usuário pelo ID
+
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getUserById(@PathVariable Long id) {
         UserEntity user = userService.getById(id);
@@ -35,7 +34,6 @@ public class UserController {
         }
     }
 
-    // Método para criar um novo usuário
     @PostMapping
     public ResponseEntity<UserEntity> createUser(@Valid @RequestBody UserEntity user) {
         UserEntity createdUser = userService.create(user);
@@ -48,8 +46,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    // Método para atualizar um usuário existente
-    @PutMapping("/vpultimo/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserEntity> updateUser(@Valid @RequestBody UserEntity user) {
         UserEntity updatedUser = userService.updateUser(user);
         if (updatedUser != null) {
@@ -58,11 +55,14 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    // Método para excluir um usuário
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/contatos/{id}")
+    public ResponseEntity<List<UserEntity>> findUsersWithMessagesExchange(@PathVariable Long id) {
+        List<UserEntity> users = userService.findContactsByUserId(id);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }

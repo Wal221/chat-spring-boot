@@ -49,4 +49,7 @@ public class UserService {
 	public void updateVistoPorUltimoById(Long id){
 		userRepository.updateVistoPorUltimoById(id);
 	}
+	public List<UserEntity> findContactsByUserId(Long id){
+		return userRepository.findContactsByUserId(id);
+	}
 }

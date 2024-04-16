@@ -2,7 +2,8 @@ package br.com.chat.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.sql.Timestamp;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,15 +35,48 @@ public class MessageEntity implements Serializable {
 	@NotNull
 	private Boolean view;
 	@NotNull
-	@ManyToOne // muitas mensagen podem ser enviada por um usuario 
+	@ManyToOne
 	private UserEntity userEnvia;
 	
 	@NotNull
-	@ManyToOne // muitas mensagens podem ser recebidas por um usuario
+	@ManyToOne
 	private UserEntity userRecebe;
 
 	public MessageEntity() {
 		super();
+	}
+
+	public MessageEntity(Long id, String text , UserEntity userEnvia, UserEntity userRecebe) {
+		this.id = id;
+		this.text = text;
+		this.dateTime = new Timestamp(System.currentTimeMillis());
+		this.view = false;
+		this.userEnvia = userEnvia;
+		this.userRecebe = userRecebe;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Timestamp getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(Timestamp dateTime) {
+		this.dateTime = dateTime;
 	}
 
 	public Boolean getView() {
@@ -53,18 +87,19 @@ public class MessageEntity implements Serializable {
 		this.view = view;
 	}
 
-	public Timestamp getDateTime() {
-		return dateTime;
-	}
-
 	public UserEntity getUserEnvia() {
 		return userEnvia;
+	}
+
+	public void setUserEnvia(UserEntity userEnvia) {
+		this.userEnvia = userEnvia;
 	}
 
 	public UserEntity getUserRecebe() {
 		return userRecebe;
 	}
-	
-	
 
+	public void setUserRecebe(UserEntity userRecebe) {
+		this.userRecebe = userRecebe;
+	}
 }
