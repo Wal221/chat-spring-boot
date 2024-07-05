@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
@@ -30,6 +30,7 @@ public class TestConfig implements CommandLineRunner {
         UserEntity user3 = new UserEntity(null,"aldaberto ","io");
         UserEntity user4 = new UserEntity(null,"jamais ","io");
         UserEntity user5 = new UserEntity(null,"outro","io");
+        UserEntity user6 = new UserEntity(null,"outro","io");
        userRepository.saveAll(Arrays.asList(user,user1,user2,user3,user4,user5));
 
         for (int i = 0; i < 50; i++) {
