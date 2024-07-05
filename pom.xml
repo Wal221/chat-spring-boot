@@ -87,7 +87,7 @@
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.chat-spring-boot.ChatSpringBootApplication</mainClass>
+							<mainClass>br.com.chat.ChatSpringBootApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
