@@ -25,5 +25,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
             "    FROM MessageEntity m " +
             "    WHERE m.userEnvia.id = :userId OR m.userRecebe.id = :userId" +
             ") AND u.id != :userId")
+
     List<UserEntity> findContactsByUserId(@Param("userId") Long userId);
+
+
 }
