@@ -55,13 +55,13 @@
 			<version>42.7.3</version>
 		</dependency>
 
-
+		<!--
 		<dependency>
 			<groupId>br.com.chat</groupId>
 			<artifactId>chat-spring-boot</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		-->
 	</dependencies>
 
 	<build>
